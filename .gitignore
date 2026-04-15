@@ -1,0 +1,27 @@
+# node modules
+node_modules/
+
+# variables sensibles
+.env
+
+# logs
+logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# build
+dist/
+build/
+
+# cache
+.cache/
+
+# vscode
+.vscode/
+
+# mac
+.DS_Store

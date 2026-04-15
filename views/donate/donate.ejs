@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Faire un don - ORPHANS CARE TOGO</title>
+    <meta
+      name="description"
+      content="Soutenez Orphans Care Togo avec un don sécurisé via Stripe ou PayPal."
+    />
+    <meta
+      name="keywords"
+      content="don, paypal, stripe, association, orphelins, togo"
+    />
+
+    <!-- Favicons -->
+    <link href="/assets/img/favicon.png" rel="icon" />
+    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="/assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="/assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="/assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Main CSS File -->
+    <link href="/assets/css/main.css" rel="stylesheet" />
+
+    <style>
+      .donate-hero {
+        padding: 120px 0 70px;
+        background: linear-gradient(
+          135deg,
+          color-mix(in srgb, var(--accent-color), transparent 92%) 0%,
+          #fff 100%
+        );
+      }
+
+      .donate-badge {
+        display: inline-block;
+        background-color: color-mix(
+          in srgb,
+          var(--accent-color),
+          transparent 85%
+        );
+        color: var(--accent-color);
+        font-weight: 700;
+        padding: 8px 18px;
+        border-radius: 50px;
+        margin-bottom: 20px;
+        font-size: 14px;
+      }
+
+      .donate-title {
+        font-size: 42px;
+        font-weight: 800;
+        color: var(--heading-color);
+        margin-bottom: 18px;
+      }
+
+      .donate-title .accent-text {
+        color: var(--accent-color);
+      }
+
+      .donate-description {
+        font-size: 17px;
+        line-height: 1.8;
+        color: var(--default-color);
+        margin-bottom: 30px;
+      }
+
+      .impact-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        margin-top: 30px;
+      }
+
+      .impact-item {
+        background: #fff;
+        border-radius: 16px;
+        padding: 20px 15px;
+        text-align: center;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+      }
+
+      .impact-item h4 {
+        margin-bottom: 8px;
+        color: var(--accent-color);
+        font-weight: 800;
+      }
+
+      .impact-item p {
+        margin: 0;
+        font-size: 14px;
+      }
+
+      .donate-card {
+        background: #fff;
+        border-radius: 24px;
+        padding: 35px 28px;
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+      }
+
+      .donate-card h3 {
+        text-align: center;
+        margin-bottom: 10px;
+        color: var(--heading-color);
+        font-weight: 800;
+      }
+
+      .donate-card .subtitle {
+        text-align: center;
+        margin-bottom: 25px;
+        color: var(--default-color);
+      }
+
+      .quick-amounts {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin-bottom: 25px;
+      }
+
+      .quick-amount-btn {
+        border: 1px solid
+          color-mix(in srgb, var(--accent-color), transparent 70%);
+        background: #fff;
+        color: var(--heading-color);
+        border-radius: 12px;
+        padding: 12px 10px;
+        font-weight: 700;
+        transition: all 0.3s ease;
+      }
+
+      .quick-amount-btn:hover {
+        background: var(--accent-color);
+        color: #fff;
+        border-color: var(--accent-color);
+      }
+
+      .payment-title {
+        text-align: center;
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--heading-color);
+        margin-bottom: 15px;
+      }
+
+      .donate-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .donate-form input {
+        width: 100%;
+        max-width: 380px;
+        height: 52px;
+        border-radius: 12px;
+        border: 1px solid #d9d9d9;
+        padding: 0 16px;
+        text-align: center;
+        font-size: 16px;
+      }
+
+      .donate-form input:focus {
+        outline: none;
+        border-color: var(--accent-color);
+        box-shadow: 0 0 0 0.2rem
+          color-mix(in srgb, var(--accent-color), transparent 80%);
+      }
+
+      .donate-btn {
+        width: 100%;
+        max-width: 380px;
+        border: none;
+        border-radius: 12px;
+        height: 52px;
+        font-weight: 700;
+        transition: all 0.3s ease;
+      }
+
+      .btn-stripe {
+        background: var(--accent-color);
+        color: #fff;
+      }
+
+      .btn-stripe:hover {
+        background: color-mix(in srgb, var(--accent-color), black 15%);
+        color: #fff;
+      }
+
+      .btn-paypal {
+        background: #0070ba;
+        color: #fff;
+      }
+
+      .btn-paypal:hover {
+        background: #005c99;
+        color: #fff;
+      }
+
+      .separator {
+        text-align: center;
+        margin: 25px 0;
+        position: relative;
+      }
+
+      .separator::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: #e5e5e5;
+      }
+
+      .separator span {
+        position: relative;
+        z-index: 2;
+        background: #fff;
+        padding: 0 12px;
+        color: #888;
+      }
+
+      .donate-note {
+        margin-top: 25px;
+        text-align: center;
+        font-size: 14px;
+        color: #777;
+      }
+
+      @media (max-width: 991px) {
+        .donate-title {
+          font-size: 34px;
+        }
+
+        .impact-list {
+          grid-template-columns: 1fr;
+        }
+
+        .donate-card {
+          margin-top: 30px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .donate-hero {
+          padding: 100px 0 50px;
+        }
+
+        .donate-title {
+          font-size: 28px;
+        }
+
+        .quick-amounts {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .donate-card {
+          padding: 25px 18px;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="index-page">
+    <%- include("../partials/header") %>
+
+    <main class="main">
+      <section id="donate" class="donate-hero section">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <div class="row align-items-center gy-5">
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+              <span class="donate-badge">Faire un don</span>
+              <h1 class="donate-title">
+                Votre générosité construit <br />
+                <span class="accent-text">un avenir meilleur</span>
+              </h1>
+              <p class="donate-description">
+                Avec votre soutien, Orphans Care Togo peut offrir l’éducation,
+                la santé, la nutrition et un accompagnement humain aux enfants
+                vulnérables. Chaque don compte.
+              </p>
+
+              <div class="impact-list">
+                <div class="impact-item">
+                  <h4>10€</h4>
+                  <p>Pour des repas et des besoins essentiels.</p>
+                </div>
+                <div class="impact-item">
+                  <h4>25€</h4>
+                  <p>Pour des fournitures scolaires et éducatives.</p>
+                </div>
+                <div class="impact-item">
+                  <h4>50€</h4>
+                  <p>Pour soutenir un enfant sur une période plus longue.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="zoom-out" data-aos-delay="300">
+              <div class="donate-card">
+                <h3>Faire un don maintenant</h3>
+                <p class="subtitle">
+                  Choisissez un montant et votre moyen de paiement
+                </p>
+
+                <div class="quick-amounts">
+                  <button
+                    type="button"
+                    class="quick-amount-btn"
+                    onclick="setAmount(5)"
+                  >
+                    5€
+                  </button>
+                  <button
+                    type="button"
+                    class="quick-amount-btn"
+                    onclick="setAmount(10)"
+                  >
+                    10€
+                  </button>
+                  <button
+                    type="button"
+                    class="quick-amount-btn"
+                    onclick="setAmount(25)"
+                  >
+                    25€
+                  </button>
+                  <button
+                    type="button"
+                    class="quick-amount-btn"
+                    onclick="setAmount(50)"
+                  >
+                    50€
+                  </button>
+                </div>
+
+                <div class="payment-title">Donner avec Visa / Mastercard</div>
+                <form action="/donate/stripe" method="POST" class="donate-form">
+                  <input
+                    type="number"
+                    name="amount"
+                    id="stripeAmount"
+                    min="1"
+                    placeholder="Entrez le montant en €"
+                    required
+                  />
+                  <button type="submit" class="donate-btn btn-stripe">
+                    Donner avec carte
+                  </button>
+                </form>
+
+                <div class="separator">
+                  <span>ou</span>
+                </div>
+
+                <div class="payment-title">Donner avec PayPal</div>
+                <form action="/donate/paypal" method="POST" class="donate-form">
+                  <input
+                    type="number"
+                    name="amount"
+                    id="paypalAmount"
+                    min="1"
+                    placeholder="Entrez le montant en €"
+                    required
+                  />
+                  <button type="submit" class="donate-btn btn-paypal">
+                    Donner avec PayPal
+                  </button>
+                </form>
+
+                <p class="donate-note">
+                  Paiement sécurisé via Stripe ou PayPal.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <%- include("../partials/footer") %>
+
+    <!-- Scroll Top -->
+    <a
+      href="#"
+      id="scroll-top"
+      class="scroll-top d-flex align-items-center justify-content-center"
+    >
+      <i class="bi bi-arrow-up-short"></i>
+    </a>
+
+    <!-- Vendor JS Files -->
+    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/vendor/php-email-form/validate.js"></script>
+    <script src="/assets/vendor/aos/aos.js"></script>
+    <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+
+    <!-- Main JS File -->
+    <script src="/assets/js/main.js"></script>
+
+    <script>
+      function setAmount(value) {
+        document.getElementById("stripeAmount").value = value;
+        document.getElementById("paypalAmount").value = value;
+      }
+    </script>
+  </body>
+</html>
