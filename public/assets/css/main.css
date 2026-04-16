@@ -2338,15 +2338,8 @@ section,
   /* Add your styles here */
 }
 /* =========================
-   Correctifs responsive mobile
+   Correctifs responsive mobile sûrs
    ========================= */
-
-/* Empêche les débordements */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
 
 html,
 body {
@@ -2354,38 +2347,24 @@ body {
   width: 100%;
 }
 
-img,
-svg,
-video,
-canvas,
-iframe {
+img {
   max-width: 100%;
   height: auto;
-  display: block;
 }
 
-/* Evite que les textes longs cassent la mise en page */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-a,
-span,
-button {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
+/* Empêche les débordements des sections Bootstrap */
+.container,
+.container-fluid {
+  width: 100%;
+  max-width: 100%;
 }
 
-/* Boutons qui doivent mieux se comporter sur mobile */
+/* Les boutons peuvent passer à la ligne */
 .btn,
 button {
   white-space: normal;
 }
 
-/* Petits écrans */
 @media (max-width: 576px) {
   .container,
   .container-fluid {
@@ -2406,7 +2385,6 @@ button {
     font-size: 26px;
   }
 
-  /* HEADER */
   .header .header-container {
     border-radius: 20px;
     padding: 10px 12px;
@@ -2429,7 +2407,6 @@ button {
     font-size: 12px;
   }
 
-  /* HERO */
   .hero {
     padding-top: 120px;
   }
@@ -2449,22 +2426,13 @@ button {
   .hero .hero-buttons .btn,
   .hero .hero-buttons a {
     width: 100%;
-    justify-content: center;
     text-align: center;
+    justify-content: center;
   }
 
   .hero .btn-primary {
     width: 100%;
     padding: 0.9rem 1.2rem;
-  }
-
-  .hero .btn-link {
-    display: flex;
-    justify-content: center;
-  }
-
-  .hero .stats-row {
-    margin-top: 2rem;
   }
 
   .hero .stat-item {
@@ -2473,16 +2441,6 @@ button {
     padding: 1.25rem;
   }
 
-  /* ABOUT */
-  .about .about-title {
-    font-size: 1.5rem;
-  }
-
-  .about .contact-info {
-    padding: 1rem;
-  }
-
-  /* FEATURES */
   .features .nav-tabs {
     display: flex;
     flex-direction: column;
@@ -2507,7 +2465,6 @@ button {
     padding-right: 10px;
   }
 
-  /* SERVICES / CARDS */
   .services .service-card,
   .pricing .pricing-card,
   .features-cards .feature-box,
@@ -2517,47 +2474,11 @@ button {
     padding: 1.25rem;
   }
 
-  /* CONTACT */
-  .contact .info-item {
-    gap: 1rem;
-    align-items: flex-start;
-  }
-
-  .contact .info-item .icon-box {
-    width: 3rem;
-    height: 3rem;
-  }
-
-  .contact .info-item .content h4 {
-    font-size: 1.05rem;
-  }
-
-  .contact .contact-form h3,
-  .contact .info-box h3 {
-    font-size: 1.5rem;
-  }
-
-  .contact .contact-form .btn {
-    width: 100%;
-    justify-content: center;
-  }
-
-  /* CTA */
+  .contact .contact-form .btn,
   .call-to-action .btn-cta,
   .call-to-action-2 .cta-btn {
     width: 100%;
     text-align: center;
-    padding: 12px 20px;
-    margin: 8px 0 0 0;
-  }
-
-  /* FOOTER */
-  .footer .footer-about .logo span {
-    font-size: 20px;
-  }
-
-  .footer .social-links {
-    flex-wrap: wrap;
-    gap: 10px;
+    justify-content: center;
   }
 }
